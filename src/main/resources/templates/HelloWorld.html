@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+    <link rel="stylesheet" href="style.css">
+    <link th:href="@{/style.css}" rel="stylesheet"/>
+
+
+</head>
+<body>
+
+<header>
+
+    <div class="navbar" th:fragment="header">
+
+        <ul class="nav navbar-nav">
+            <li>
+                <a class="navbar-brand" href="/">Home Page</a>
+            </li>
+            <li>
+                <a class="navbar-brand" href="/hello">Hello Page</a>
+            </li>
+            <li>
+                <a href="/capitalize/hello" >Capitalize</a>
+            </li>
+            <li>
+                <a href="/albums" >Albums</a>
+            </li>
+        </ul>
+
+
+    </div>
+
+</header>
+<h1>Capitalize Page</h1>
+
+<p  th:text="${name}"></p>
+</body>
+</html>
