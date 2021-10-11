@@ -29,7 +29,7 @@ public class MainController{
         return "HelloWorld";
     }
 
-    @GetMapping("/albums")
+    @GetMapping("/getalbums")
     public String albums( Model model) {
         ArrayList<Album> albums= new ArrayList<>();
         Album IWantIThatAway = new Album("I want it that away", "BackStreet Boys", 4, 960, "https://media.glamour.com/photos/5e822ed3449002000841f2a5/master/pass/GettyImages-1176081636.jpg");
@@ -73,7 +73,7 @@ public class MainController{
 
     @GetMapping("/addalbum")
     String addAlbum() {
-        return "addalbum";
+        return "addAlbum";
     }
 
 }
