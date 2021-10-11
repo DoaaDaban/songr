@@ -35,16 +35,10 @@
 
 <div th:each="album:${album}" class="album">
     <img th:src="@{${album.imageUrl}}"/>
-
     <p th:text="'Title:  '+'   '+${album.title}"></p>
     <p th:text="${'artist:  '+'  '+album.artist}"></p>
     <p th:text="${'songCount:  '+'  '+album.songCount}"></p>
     <p th:text="'sec:  '+'   '+${album.length}"></p>
-
-
-    <p th:text="${'AlbumId:  '+' '+album.id}"></p>
-    <img th:src="@{${album.imageUrl}}"/>
-
 </div>
 
 </body>

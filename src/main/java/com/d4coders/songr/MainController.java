@@ -8,10 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.ArrayList;
-import java.util.Locale;
 
 /**
  * `@Controller` tells spring to load this class as a controller and look for routes
@@ -25,13 +21,13 @@ public class MainController {
      *
      * @return
      */
-//    http://localhost:8080/hello
+    //    http://localhost:8080/hello
     @GetMapping("/hello")
     String helloWorld(){
         return "hello";
     }
 
-    //    http://localhost:8080/capitalize/hello?name=doaa
+    //   http://localhost:8080/capitalize/hello?name=doaa
     @GetMapping("/capitalize/{id}")
     String hello(Model model, @PathVariable("id") String id) {
         id.toUpperCase();
@@ -46,8 +42,6 @@ public class MainController {
                                  @RequestParam(value="songCount") int songCount,
                                  @RequestParam(value="length") long length,
                                  @RequestParam(value="imageUrl") String imageUrl){
-//        Album album = new Album(title,artist,songCount,length,imageUrl);
-//        albumRepo.save(album);
         return  new RedirectView("/albums");
     }
 

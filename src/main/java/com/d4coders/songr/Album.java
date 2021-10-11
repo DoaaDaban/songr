@@ -1,17 +1,8 @@
 package com.d4coders.songr;
 
-//import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
-//import javax.persistence.Id;
+
 
 public class Album {
-//    @Id
-    private Long id;
-
-    public Long getId() {
-        return id;
-    }
 
     private String title;
     private String artist;
