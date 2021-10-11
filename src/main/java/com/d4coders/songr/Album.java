@@ -1,6 +1,22 @@
 package com.d4coders.songr;
 
+
+import javax.persistence.*;
+
+@Entity
 public class Album {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
+
+    public Long getId() {
+        return id;
+    }
+
+
+
 
     private String title;
     private String artist;

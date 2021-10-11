@@ -23,6 +23,9 @@
             <li>
                 <a href="/albums" >Albums</a>
             </li>
+            <li>
+                <a href="/addAlbum" >Add your Album</a>
+            </li>
         </ul>
 
 
@@ -37,6 +40,9 @@
     <p th:text="${'artist:  '+'  '+album.artist}"></p>
     <p th:text="${'songCount:  '+'  '+album.songCount}"></p>
     <p th:text="'sec:  '+'   '+${album.length}"></p>
+
+    <p th:text="${'AlbumId:  '+' '+album.id}"></p>
+    <img th:src="@{${album.imageUrl}}"/>
 </div>
 
 </body>
