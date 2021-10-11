@@ -42,28 +42,28 @@ public class MainController{
         return "album";
     }
 
-
+    // add to database
     @PostMapping("/albums")
-    public RedirectView addAlbum(@RequestParam(value = "title") String title ,
-                                 @RequestParam(value= "artist") String artist,
-                                 @RequestParam(value="songCount") int songCount,
-                                 @RequestParam(value="imageUrl") String imageUrl,
-                                 @RequestParam(value="length") long length) {
-        Album album = new Album(title,artist,songCount,length,imageUrl);
+    public RedirectView createNewAlbum(@ModelAttribute Album album) {
         albumRepository.save(album);
-        return  new RedirectView("/albums");
+        return new RedirectView("addAlbum");
     }
 
+    // read from database on the same page
     @GetMapping("/albums")
-    String getAlbum(Model album) {
-        album.addAttribute("album" , albumRepository.findAll());
-        return "albums";
-    }
-
-
-    @GetMapping("/addalbum")
-    String addAlbum() {
+    public String getAlbum(Model model) {
+        model.addAttribute("album", albumRepository.findAll());
         return "addAlbum";
     }
+
+    // read new albums
+    @GetMapping("/existAlbums")
+    public String getExistAlbum(Model model) {
+        model.addAttribute("album", albumRepository.findAll());
+        return "album";
+    }
+
+
+
 
 }

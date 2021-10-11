@@ -1,10 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Add Album</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<header>
+
+    <div class="navbar" >
+
+        <ul class="nav navbar-nav">
+            <li>
+                <a class="navbar-brand" href="/">Home Page</a>
+            </li>
+            <li>
+                <a class="navbar-brand" href="/hello">Hello Page</a>
+            </li>
+            <li>
+                <a href="/capitalize/hello" >Capitalize</a>
+            </li>
+            <li>
+                <a href="/getalbums" >Albums</a>
+            </li>
+            <li>
+                <a href="/albums" >Add your Album</a>
+            </li>
+            <li>
+                <a href="/existAlbums" >view Existing Album</a>
+            </li>
+        </ul>
+
+    </div>
+
+</header>
 
 <form action="/albums" method="post">
     <label>Title</label>
@@ -23,9 +53,19 @@
     <input type="text" name="imageUrl" />
 
     <input type="submit" value="Add Album!">
-
-
 </form>
+
+
+<div th:each="album:${album}" class="album">
+    <img th:src="@{${album.imageUrl}}"/>
+    <p th:text="'Title:  '+'   '+${album.title}"></p>
+    <p th:text="${'artist:  '+'  '+album.artist}"></p>
+    <p th:text="${'songCount:  '+'  '+album.songCount}"></p>
+    <p th:text="'sec:  '+'   '+${album.length}"></p>
+
+    <p th:text="${'AlbumId:  '+' '+album.id}"></p>
+    <img th:src="@{${album.imageUrl}}"/>
+</div>
 
 </body>
 </html>
