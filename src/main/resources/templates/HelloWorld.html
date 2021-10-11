@@ -12,7 +12,7 @@
 
 <header>
 
-    <div class="navbar" th:fragment="header">
+    <div class="navbar" >
 
         <ul class="nav navbar-nav">
             <li>
@@ -35,6 +35,7 @@
 </header>
 <h1>Capitalize Page</h1>
 
-<p  th:text="${name}"></p>
+<p style="text-transform: uppercase" th:text="${word}"></p>
+
 </body>
 </html>
