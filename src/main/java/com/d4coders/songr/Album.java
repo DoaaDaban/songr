@@ -1,7 +1,5 @@
 package com.d4coders.songr;
 
-
-
 public class Album {
 
     private String title;
