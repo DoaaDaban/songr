@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Add Album</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
+
     <div class="navbar" >
 
         <ul class="nav navbar-nav">
@@ -31,11 +32,29 @@
             </li>
         </ul>
 
-
     </div>
 
 </header>
-<h1>The Albums</h1>
+
+<form action="/albums" method="post">
+    <label>Title</label>
+    <input type="text" name="title" />
+
+    <label>Artist</label>
+    <input type="text" name="artist" />
+
+    <label>Songs Count</label>
+    <input type="number" name="songCount" />
+
+    <label>Length</label>
+    <input type="number" name="length" />
+
+    <label>Image URL</label>
+    <input type="text" name="imageUrl" />
+
+    <input type="submit" value="Add Album!">
+</form>
+
 
 <div th:each="album:${album}" class="album">
     <img th:src="@{${album.imageUrl}}"/>
@@ -44,6 +63,8 @@
     <p th:text="${'songCount:  '+'  '+album.songCount}"></p>
     <p th:text="'sec:  '+'   '+${album.length}"></p>
 
+    <p th:text="${'AlbumId:  '+' '+album.id}"></p>
+    <img th:src="@{${album.imageUrl}}"/>
 </div>
 
 </body>

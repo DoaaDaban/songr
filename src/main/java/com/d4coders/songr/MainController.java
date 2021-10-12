@@ -1,14 +1,19 @@
 package com.d4coders.songr;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
 
 @Controller
 public class MainController{
+
+    @Autowired
+    private AlbumRepository albumRepository;
+
 
     //   http://localhost:8080/hello
     @GetMapping("/hello")
@@ -23,7 +28,7 @@ public class MainController{
         return "HelloWorld";
     }
 
-    @GetMapping("/albums")
+    @GetMapping("/getalbums")
     public String albums( Model model) {
         ArrayList<Album> albums= new ArrayList<>();
         Album IWantIThatAway = new Album("I want it that away", "BackStreet Boys", 4, 960, "https://media.glamour.com/photos/5e822ed3449002000841f2a5/master/pass/GettyImages-1176081636.jpg");
@@ -33,6 +38,27 @@ public class MainController{
         albums.add(Home);
         albums.add(algharamAlmostaheel);
         model.addAttribute("album", albums);
+        return "album";
+    }
+
+    // add to database
+    @PostMapping("/albums")
+    public RedirectView createNewAlbum(@ModelAttribute Album album) {
+        albumRepository.save(album);
+        return new RedirectView("addAlbum");
+    }
+
+    // read from database on the same page
+    @GetMapping("/albums")
+    public String getAlbum(Model model) {
+        model.addAttribute("album", albumRepository.findAll());
+        return "addAlbum";
+    }
+
+    // read new albums
+    @GetMapping("/existAlbums")
+    public String getExistAlbum(Model model) {
+        model.addAttribute("album", albumRepository.findAll());
         return "album";
     }
 }
