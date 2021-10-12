@@ -14,14 +14,9 @@ import org.springframework.test.web.servlet.MockMvc;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
 class HelloWorldRouteTest {
-    @Autowired
-    private MockMvc mockMvc;
+  
     @Autowired
     MainController mainControllerTest;
-    @Autowired
-    TestRestTemplate testRestTemplate;
-    @LocalServerPort
-    private int port;
 
     @Test
     public void testLoading() throws Exception{
