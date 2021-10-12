@@ -10,6 +10,7 @@ public class Song {
     private String title;
     private int length;
     private int trackNumber;
+
     @ManyToOne
     private Album album;
 
