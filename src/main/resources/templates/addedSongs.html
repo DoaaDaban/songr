@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-
 <header>
-
-    <div class="navbar" >
+    <div class="navbar" th:fragment="header">
 
 
         <ul class="nav navbar-nav">
@@ -39,11 +38,35 @@
             </li>
         </ul>
 
+
     </div>
-
 </header>
-<h1> First page</h1>
-<h3>Hello world</h3>
 
+<h1>Add Song</h1>
+<div>
+    <form class="form-style-9" action="/songs" method="post">
+        <ul>
+            <li>
+                <input type="text" name="title" placeholder="Song Title" class="field-style field-split align-left" />
+                <input type="number" name="trackNumber" class="field-style field-split align-right" placeholder="song track" />
+            </li>
+        </ul>
+
+        <ul>
+            <li>
+                <input type="number" name="length" class="field-style field-split align-left" placeholder="Length" />
+                <input type="number" name="albumID" class="field-style field-split align-right" placeholder="Album" />
+            </li>
+        </ul>
+
+
+        <ul>
+            <li>
+                <input type="submit" value="Add Song" >
+            </li>
+        </ul>
+
+    </form>
+</div>
 </body>
 </html>

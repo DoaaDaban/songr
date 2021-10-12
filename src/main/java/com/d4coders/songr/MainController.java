@@ -45,7 +45,7 @@ public class MainController{
     @PostMapping("/albums")
     public RedirectView createNewAlbum(@ModelAttribute Album album) {
         albumRepository.save(album);
-        return new RedirectView("addAlbum");
+        return new RedirectView("/albums");
     }
 
     // read from database on the same page
