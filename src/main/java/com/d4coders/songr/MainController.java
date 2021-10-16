@@ -7,12 +7,14 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class MainController{
 
     @Autowired
     private AlbumRepository albumRepository;
+
 
 
     //   http://localhost:8080/hello
@@ -62,10 +64,19 @@ public class MainController{
         return "album";
     }
 
+//
+//    @GetMapping("/AlbumInfo/{id}")
+//    public String addAlbumInfo(@PathVariable String id, Model model){
+//        Album album = albumRepository.findById(Long.parseLong(id)).orElseThrow();
+//        model.addAttribute("Album", album);
+//        return "albumInfo";
+//    }
 
-    @GetMapping("/AlbumInfo")
-    public String addAlbumInfo(Model model){
-        model.addAttribute("album", albumRepository.findAll());
-        return "albumInfo";
-    }
+//    @GetMapping("/songs/album/{album}")
+//    public String getSongsByAlbum(@PathVariable String album, Model model) {
+//        Album newAlbum = albumRepository.findAlbumByTitle(album).orElseThrow();
+//        List<Song> songs = SongsRepository.findSongsByAlbum(newAlbum).orElseThrow();
+//        model.addAttribute("songs", songs);
+//        return "songs";
+//    }
 }
