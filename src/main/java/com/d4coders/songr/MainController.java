@@ -61,4 +61,11 @@ public class MainController{
         model.addAttribute("album", albumRepository.findAll());
         return "album";
     }
+
+
+    @GetMapping("/AlbumInfo")
+    public String addAlbumInfo(Model model){
+        model.addAttribute("album", albumRepository.findAll());
+        return "albumInfo";
+    }
 }
