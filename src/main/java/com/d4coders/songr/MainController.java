@@ -64,19 +64,13 @@ public class MainController{
         return "album";
     }
 
-//
-//    @GetMapping("/AlbumInfo/{id}")
-//    public String addAlbumInfo(@PathVariable String id, Model model){
-//        Album album = albumRepository.findById(Long.parseLong(id)).orElseThrow();
-//        model.addAttribute("Album", album);
-//        return "albumInfo";
-//    }
 
-//    @GetMapping("/songs/album/{album}")
-//    public String getSongsByAlbum(@PathVariable String album, Model model) {
-//        Album newAlbum = albumRepository.findAlbumByTitle(album).orElseThrow();
-//        List<Song> songs = SongsRepository.findSongsByAlbum(newAlbum).orElseThrow();
-//        model.addAttribute("songs", songs);
-//        return "songs";
-//    }
+    @GetMapping("/AlbumInfo/{id}")
+    public String addAlbumInfo(@PathVariable String id, Model model){
+        Album album = albumRepository.findById(Long.parseLong(id)).orElseThrow();
+        model.addAttribute("Album", album);
+        model.addAttribute("Songs", album.getSongs());
+        return "albumInfo";
+    }
+
 }
