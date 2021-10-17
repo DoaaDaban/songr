@@ -30,6 +30,15 @@
             <li>
                 <a href="/existAlbums" >view Existing Album</a>
             </li>
+            <li>
+            <a href="/songs" >Your songs</a>
+            </li>
+            <li>
+                <a href="/addSong" >Add Songs</a>
+            </li>
+            <li>
+                <a href="/AlbumInfo" >Album info</a>
+            </li>
         </ul>
 
     </div>
@@ -64,7 +73,7 @@
     <p th:text="'sec:  '+'   '+${album.length}"></p>
 
     <p th:text="${'AlbumId:  '+' '+album.id}"></p>
-    <img th:src="@{${album.imageUrl}}"/>
+
 </div>
 
 </body>

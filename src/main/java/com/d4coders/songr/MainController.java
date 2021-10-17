@@ -7,12 +7,14 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class MainController{
 
     @Autowired
     private AlbumRepository albumRepository;
+
 
 
     //   http://localhost:8080/hello
@@ -45,7 +47,7 @@ public class MainController{
     @PostMapping("/albums")
     public RedirectView createNewAlbum(@ModelAttribute Album album) {
         albumRepository.save(album);
-        return new RedirectView("addAlbum");
+        return new RedirectView("/albums");
     }
 
     // read from database on the same page
@@ -61,4 +63,14 @@ public class MainController{
         model.addAttribute("album", albumRepository.findAll());
         return "album";
     }
+
+
+    @GetMapping("/AlbumInfo/{id}")
+    public String addAlbumInfo(@PathVariable String id, Model model){
+        Album album = albumRepository.findById(Long.parseLong(id)).orElseThrow();
+        model.addAttribute("Album", album);
+        model.addAttribute("Songs", album.getSongs());
+        return "albumInfo";
+    }
+
 }
